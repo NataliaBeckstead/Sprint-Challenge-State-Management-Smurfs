@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import SmurfCard from "./SmurfCard";
 
 const Smurfs = props => {
     return (
@@ -7,7 +8,7 @@ const Smurfs = props => {
           {props.error ? (
             <div className="error">{props.error}</div>
           ) : (
-            props.smurfs.map(smurf => <div>{smurf}</div>)
+            props.smurfs.map(smurf => <SmurfCard key={smurf.id} smurf={smurf} />)
           )}
         </>
       );

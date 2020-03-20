@@ -13,7 +13,7 @@ export const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetchingData: true,
-        smurfs: []
+        error: ""
       };
     case UPDATE_SMURF:
       return {
@@ -30,7 +30,8 @@ export const smurfReducer = (state = initialState, action) => {
     case POST_START:
       return {
         ...state,
-        isPostingData: true
+        isPostingData: true,
+        error: ""
       };
     case POST_SUCCESS:
         return {
