@@ -1,4 +1,4 @@
-import { FETCH_DATA, UPDATE_SMURF, SET_ERROR, POST_START, POST_SUCCESS, POST_FAILURE } from "../actions";
+import { FETCH_DATA, UPDATE_SMURF, SET_ERROR, POST_START, POST_SUCCESS, POST_FAILURE, DELETE_SMURF,	DELETE_SMURF_SUCCESS, DELETE_SMURF_FAILURE } from "../actions";
 
 const initialState = {
   smurfs: [],
@@ -45,6 +45,24 @@ export const smurfReducer = (state = initialState, action) => {
         isPostingData: false,
         error: action.payload
       };
+    case DELETE_SMURF:
+			return {
+				...state,
+				isLoading: true,
+				error: ""
+		};
+	case DELETE_SMURF_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				smurfs: action.payload
+			};
+	case DELETE_SMURF_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				error: action.payload
+		};
     default:
       return state;
   }
